@@ -1,1 +1,0 @@
-C:\Users\client\Documents\GitHub\WhatToWatchEnvDev\WhatToWatchEnvDev\WhatToWatchEnvDev.csproj;x86

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace WhatToWatchEnvDev.Model
 {
-    class Category
+    public class Category
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("name")]
-        public String name { get; set; }
+        public String Name { get; set; }
 
         public Category ()
         {
@@ -22,8 +22,8 @@ namespace WhatToWatchEnvDev.Model
 
         public Category(int id, String name)
         {
-            this.id = id;
-            this.name = name;
+            this.Id = id;
+            this.Name = name;
         }
     }
 }

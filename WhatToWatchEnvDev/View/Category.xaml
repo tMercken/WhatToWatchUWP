@@ -8,6 +8,8 @@
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=Category}">
 
+
+
     <Grid Background="#eeeeee">
 
         <Grid.Resources>
@@ -16,18 +18,22 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Text="Categories"  Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
-        <TextBlock Name="test1" Margin="50,80,50,50"></TextBlock>
-        <TextBlock Name="test2" Margin="50,100,50,50"></TextBlock>
-        <ListView x:Name="CategoryListView" Grid.Row="1" ItemsSource="{Binding Movie}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
-            <ListView.ItemTemplate>
-                <DataTemplate >
-                    <StackPanel HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding Movie.Title}" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Style="{ThemeResource TitleTextBlockStyle}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+        <RelativePanel Background="LightGray">
+            <TextBlock Text="Categories List" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+        </RelativePanel>
+
+        <Grid Grid.Row="1">
+            <ListView x:Name="CategoryListView" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" Style="{ThemeResource TitleTextBlockStyle}" Width="500"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
 
     </Grid>
 </Page>

@@ -18,12 +18,17 @@ namespace WhatToWatchEnvDev.ViewModel
             SimpleIoc.Default.Register<MainPageViewModel>();
             SimpleIoc.Default.Register<SearchViewModel>();
             SimpleIoc.Default.Register<CategoryViewModel>();
+            SimpleIoc.Default.Register<ListMoviesViewModel>();
+            SimpleIoc.Default.Register<MovieDetailsViewModel>();
 
             NavigationService navigationService = new NavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
             navigationService.Configure("MainPage", typeof(MainPage));
             navigationService.Configure("Search", typeof(Search));
             navigationService.Configure("Category", typeof(Category));
+            navigationService.Configure("ListMovies", typeof(ListMovies));
+            navigationService.Configure("MovieDetails", typeof(MovieDetails));
+
         }
 
         public MainPageViewModel MainView
@@ -47,6 +52,22 @@ namespace WhatToWatchEnvDev.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<CategoryViewModel>();
+            }
+        }
+        
+        public ListMoviesViewModel ListMovies
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ListMoviesViewModel>();
+            }
+        }
+
+        public MovieDetailsViewModel MovieDetails
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MovieDetailsViewModel>();
             }
         }
 

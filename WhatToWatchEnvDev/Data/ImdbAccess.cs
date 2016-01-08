@@ -17,20 +17,19 @@ namespace WhatToWatchEnvDev.Data
         private String AllMoviefromGenreFirstPartUrl = "http://api.themoviedb.org/3/genre/";
         private String AllMoviefromGenreSecondPartUrl = "/movies?api_key=";
         private String allGenreUrl = "http://api.themoviedb.org/3/genre/movie/list?api_key=";
-        private String testString = "ceci est un test";
+
         public ImdbAccess()
-        {
-            client = new HttpClient();            
+        {        
         }
 
         
-        public async Task<List<Movie>> GetAllMovies(String ingredients)
+       public async Task<List<Movie>> GetAllMovies()
         {/*
             client.BaseAddress = new Uri("http://food2fork.com/api/search?key=217401dcb0a4ad131cd118a528ce6cb4&q=");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync(ingredients);
+            HttpResponseMessage response = await client.GetAsync(movie);
             string json = await response.Content.ReadAsStringAsync();
             var movies = new List<Movie>();
             var imdbResponse = JsonConvert.DeserializeObject<ImdbResponse>(json);
@@ -49,64 +48,46 @@ namespace WhatToWatchEnvDev.Data
 
         }
 
-        public String getTestString()
+        public async Task<List<Movie>> GetMovieFromCategory(int categoryID)
         {
-            return testString;
-        }
-
-        public async Task<List<Movie>> GetMovieFromCategory(Category category)
-        {/*
-            client.BaseAddress = new Uri(AllMoviefromGenreFirstPartUrl + category.ToString() + AllMoviefromGenreSecondPartUrl + apiKey);
+            client = new HttpClient();
+            client.BaseAddress = new Uri(AllMoviefromGenreFirstPartUrl + categoryID.ToString() + AllMoviefromGenreSecondPartUrl + apiKey);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             HttpResponseMessage response = await client.GetAsync("");
-            string json = await response.Content.ReadAsStringAsync();
-            
-            var movies = new List<Movie>();
-            var imdbResponse = JsonConvert.DeserializeObject<ImdbResponse>(json);
 
-            if (imdbResponse.movies.Any())
+            string json = await response.Content.ReadAsStringAsync();            
+            var movies = new List<Movie>();
+            var moviesResponse = JsonConvert.DeserializeObject<MoviesFromCategoryResponse>(json);
+
+            if (moviesResponse.results.Any())
             {
-                movies = imdbResponse.movies;
-            }*/
-                var movies = new List<Movie>();
+                movies = moviesResponse.results;
+            }
+
             return movies;
         }
 
         public async Task<List<Category>> GetAllCategories()
         {
+            client = new HttpClient();
             client.BaseAddress = new Uri(allGenreUrl + apiKey);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            JsonSerializerSettings set = new JsonSerializerSettings();
-            set.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Simple;
-            set.TypeNameHandling = TypeNameHandling.All;
-            set.Formatting = Newtonsoft.Json.Formatting.None;
-
             HttpResponseMessage response = await client.GetAsync("");
 
             string json = await response.Content.ReadAsStringAsync();
             var categories = new List<Category>();
-            var imdbResponse = JsonConvert.DeserializeObject<ImdbResponse>(json);
-            ImdbResponse iresp = JsonConvert.DeserializeObject<ImdbResponse>(json);
+            var categoriesResponse = JsonConvert.DeserializeObject<AllCategoriesResponse>(json);
 
-            var categoryReponse = JsonConvert.DeserializeObject<Category>(json);
-            //var encoreUne = JsonConvert.DeserializeObject(json, ImdbResponse);
-
-            string l = "oll";
-            if (imdbResponse.genres == null)
+            if (categoriesResponse.genres.Any())
             {
-                string m = "ferfe";
-            }
-
-            if (imdbResponse.genres.Any())
-            {
-                categories = imdbResponse.genres;
+                categories = categoriesResponse.genres;
             }
 
             return categories;
         }
+
+
     }
 }

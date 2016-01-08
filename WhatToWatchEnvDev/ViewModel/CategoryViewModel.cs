@@ -16,39 +16,31 @@ using WhatToWatchEnvDev.Model;
 
 namespace WhatToWatchEnvDev.ViewModel
 {
-    public class CategoryViewModel : ViewModelBase, INotifyPropertyChanged
+    public sealed class CategoryViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private ObservableCollection<Category> _categories;
-        private ObservableCollection<Movie> _movies;
-        private Movie _selectedMovie;
+        private Category _selectedCategory;
         private INavigationService _navigationService;
         ImdbAccess dataImdb;
-        private ICommand _showMovieCommand;
+        //public NavigationService nav;
 
         public CategoryViewModel()
         {
+            dataImdb = new ImdbAccess();
+            Categories = new ObservableCollection<Category>();
         }
 
         [PreferredConstructor]
         public CategoryViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+            //nav = new NavigationService();
             dataImdb = new ImdbAccess();
-            Movies = new ObservableCollection<Movie>();
-            //GetAllMovie();
+            Categories = new ObservableCollection<Category>();
         }
+        
 
-        public ObservableCollection<Movie> Movies
-        {
-            get { return _movies; }
-            set
-            {
-                _movies = value;
-                RaisePropertyChanged("Recipes");
-            }
-        }
-
-        private ObservableCollection<Category> MyCategories
+        public ObservableCollection<Category> Categories
         {
             get { return _categories; }
             set
@@ -58,13 +50,22 @@ namespace WhatToWatchEnvDev.ViewModel
             }
         }
 
+        private void ChooseCategory()
+        {        
+                // myFrame.Navigate(typeof(View.Home));
+                
+                //nav.Configure("ListMovies", typeof(View.ListMovies));
+                //nav.NavigateTo("ListMovies");
+           _navigationService.NavigateTo("ListMovies", SelectedCategory);
+            
+        }
+
         public async void GetAllCategories()
         {
             List<Category> listCategories = await dataImdb.GetAllCategories();
-            MyCategories = new ObservableCollection<Category> ();
             foreach (var item in listCategories)
             {
-                MyCategories.Add(item);
+                Categories.Add(item);
             }
         }
 
@@ -73,60 +74,19 @@ namespace WhatToWatchEnvDev.ViewModel
             GetAllCategories();
         }
 
-        public async void GetAllMovies()
+        public Category SelectedCategory
         {
-            List<Movie> listRecipes = await dataImdb.GetAllMovies("");
-
-            foreach (var item in listRecipes)
-            {
-                Movies.Add(item);
-            }
-        }
-
-        public ICommand ShowMovieCommand
-        {
-            get
-            {
-                if (this._showMovieCommand == null)
-                {
-                    this._showMovieCommand = new RelayCommand(() => ShowRecipe());
-                }
-                return this._showMovieCommand;
-            }
-        }
-
-        public Movie SelectedMovie
-        {
-            get { return _selectedMovie; }
+            get { return _selectedCategory; }
             set
             {
-                _selectedMovie = value;
-                if (_selectedMovie != null)
+                _selectedCategory = value;
+                if (_selectedCategory != null)
                 {
-                    RaisePropertyChanged("SelectedMovie");
+                    RaisePropertyChanged("SelectedCategory");
+                    ChooseCategory();
                 }
             }
         }
 
-        private void ShowRecipe()
-        {
-            if (CanExecute())
-            {
-                _navigationService.NavigateTo("Movie", SelectedMovie);
-            }
-        }
-
-        public bool CanExecute()
-        {
-            if (SelectedMovie == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        
     }
 }
