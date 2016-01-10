@@ -1,7 +1,9 @@
 App.xbf
 MainPage.xbf
+View\AdvancedSearch.xbf
 View\Category.xbf
 View\Home.xbf
 View\ListMovies.xbf
 View\MovieDetails.xbf
 View\Search.xbf
+View\SearchResult.xbf

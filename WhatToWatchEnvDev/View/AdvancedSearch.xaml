@@ -1,17 +1,17 @@
 ﻿<Page
-    x:Class="WhatToWatchEnvDev.View.Search"
+    x:Class="WhatToWatchEnvDev.View.AdvancedSearch"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WhatToWatchEnvDev.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=Search}">
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=AdvancedSearch}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="350">
-            <TextBox x:Name="searchTextBox" x:Uid="searchInput" PlaceholderText="Enter Movie Title" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding MovieTitle}" Width="294"/>
-            <Button x:Name="searchButton" Content="Search" x:Uid="searchTitle" HorizontalAlignment="Center" Margin="0,15,0,0" Command="{Binding SearchCommand}"/>
+            <TextBox x:Name="searchTextBox" PlaceholderText="Enter Movie Title" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="294"/>
+            <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Center" Margin="0,15,0,0" />
         </StackPanel>
     </Grid>
 </Page>

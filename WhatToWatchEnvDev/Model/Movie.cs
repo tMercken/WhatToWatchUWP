@@ -79,6 +79,7 @@ namespace WhatToWatchEnvDev.Model
             this.vote_average = voteAverage;
             this.popularity = popularity;
         }
+
         public Movie()
         {
 

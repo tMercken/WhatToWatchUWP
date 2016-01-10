@@ -17,35 +17,44 @@ namespace WhatToWatchEnvDev.Data
         private String AllMoviefromGenreFirstPartUrl = "http://api.themoviedb.org/3/genre/";
         private String AllMoviefromGenreSecondPartUrl = "/movies?api_key=";
         private String allGenreUrl = "http://api.themoviedb.org/3/genre/movie/list?api_key=";
+        private String searchMovieTitleUrl = "http://api.themoviedb.org/3/search/movie?api_key=cc571afb50c2a89ff9f46b85c4e36a9d&query=";
 
         public ImdbAccess()
         {        
         }
-
         
-       public async Task<List<Movie>> GetAllMovies()
-        {/*
-            client.BaseAddress = new Uri("http://food2fork.com/api/search?key=217401dcb0a4ad131cd118a528ce6cb4&q=");
+        public async Task<List<Movie>> GetMovieFromAdvencedSearch(Movie searchedMovie)
+        {            
+            //string json = await response.Content.ReadAsStringAsync();
+            var movies = new List<Movie>();
+            //var moviesResponse = JsonConvert.DeserializeObject<MoviesFromCategoryResponse>(json);
+
+            /*if (moviesResponse.results.Any())
+            {
+                movies = moviesResponse.results;
+            }*/
+
+            return movies;
+        }
+
+        public async Task<List<Movie>> GetMovieFromSearch(String searchedMovieTitle)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri(searchMovieTitleUrl + searchedMovieTitle);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await client.GetAsync("");
 
-            HttpResponseMessage response = await client.GetAsync(movie);
             string json = await response.Content.ReadAsStringAsync();
             var movies = new List<Movie>();
-            var imdbResponse = JsonConvert.DeserializeObject<ImdbResponse>(json);
-            string l = "oll";
-            if (imdbResponse == null)
+            var moviesResponse = JsonConvert.DeserializeObject<MoviesFromCategoryResponse>(json);
+
+            if (moviesResponse.results.Any())
             {
-                string m = "ferfe";
+                movies = moviesResponse.results;
             }
 
-            if (imdbResponse.movies.Any())
-            {
-                movies = imdbResponse.movies;
-            }*/
-                var movies = new List<Movie>();
             return movies;
-
         }
 
         public async Task<List<Movie>> GetMovieFromCategory(int categoryID)

@@ -14,7 +14,9 @@ namespace WhatToWatchEnvDev.ViewModel
     public class SearchViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private ICommand _searchCommand;
+        private ICommand _advancedSearchCommand;
         private INavigationService _navigationService;
+        private String _movieTitle;
 
         public SearchViewModel(INavigationService navigationService)
         {
@@ -33,9 +35,43 @@ namespace WhatToWatchEnvDev.ViewModel
             }
         }
 
+        public ICommand AdvancedSearchCommand
+        {
+            get
+            {
+                if (this._advancedSearchCommand == null)
+                {
+                    this._advancedSearchCommand = new RelayCommand(() => AdvancedSearchNavigate());
+                }
+                return this._advancedSearchCommand;
+            }
+        }
+
+        public void AdvancedSearchNavigate()
+        {
+            _navigationService.NavigateTo("AdvancedSearch");
+        }
+
+        public String MovieTitle
+        {
+            get { return _movieTitle; }
+            set
+            {
+                _movieTitle = value;
+                RaisePropertyChanged("MovieTitle");
+            }
+        }
+
         private void SearchNavigate()
         {
-            _navigationService.NavigateTo("ListMovies");
+            if (CanLaunchSearch()) {
+                _navigationService.NavigateTo("SearchResult", MovieTitle);
+            }
+        }
+
+        private bool CanLaunchSearch()
+        {
+            return (MovieTitle != null);
         }
 
     }
