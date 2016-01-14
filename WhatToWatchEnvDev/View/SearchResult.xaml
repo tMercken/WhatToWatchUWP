@@ -44,6 +44,13 @@
                         </StackPanel>
                     </ListBoxItem >
 
+                    <ListBoxItem Name="FavoriteListBoxItem" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE113;  " FontSize="24" />
+                            <TextBlock Text="Favorites" FontSize="20" Margin="12,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem >
+
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>

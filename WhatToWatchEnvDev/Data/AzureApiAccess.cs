@@ -60,6 +60,23 @@ namespace WhatToWatchEnvDev.Data
             return false;
         }
 
+        public async Task<bool> GetUser(String newEmail, String newPassword)
+        {
+            List<User> users = await GetAllUsers();
+            if (users.Any())
+            {
+                foreach (User item in users)
+                {
+                    if (item.email.Equals(newEmail) && item.password.Equals(newPassword))
+                    {
+                        currentApp.GlobalInstance.GlobalUser = item;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public async Task<bool> RemoveFavorite(int idFav)
         {
 

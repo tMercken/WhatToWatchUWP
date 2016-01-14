@@ -21,5 +21,10 @@ namespace WhatToWatchEnvDev.Model
         }
 
         public User GlobalUser { get; set; }
+
+        public Boolean IsUserEmpty ()
+        {
+            return (this.GlobalUser == null);
+        }
     }
 }

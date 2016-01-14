@@ -29,7 +29,52 @@ namespace WhatToWatchEnvDev.View
         public Category()
         {
             this.InitializeComponent();
+            BackButton.Visibility = Visibility.Visible;
+            SearchListBoxItem.IsSelected = true;
+        }
+
+        private void Hambutton_Click(object sender, RoutedEventArgs e)
+        {
+            SplitViewMenu.IsPaneOpen = !SplitViewMenu.IsPaneOpen;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
+
+        private void IconListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HomeListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Home));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (SearchListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Search));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (CategoryListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Category));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (FavoriteListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.ListFavorites));
+                BackButton.Visibility = Visibility.Visible;
+            }
             
+
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

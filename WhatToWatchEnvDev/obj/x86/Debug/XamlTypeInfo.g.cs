@@ -132,7 +132,7 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[21];
+            _typeNameTable = new string[28];
             _typeNameTable[0] = "WhatToWatchEnvDev.ViewModel.ViewModelLocator";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "WhatToWatchEnvDev.ViewModel.MainPageViewModel";
@@ -144,18 +144,25 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
             _typeNameTable[8] = "WhatToWatchEnvDev.ViewModel.CategoryViewModel";
             _typeNameTable[9] = "WhatToWatchEnvDev.ViewModel.ListMoviesViewModel";
             _typeNameTable[10] = "WhatToWatchEnvDev.ViewModel.MovieDetailsViewModel";
-            _typeNameTable[11] = "WhatToWatchEnvDev.MainPage";
-            _typeNameTable[12] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[13] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[14] = "WhatToWatchEnvDev.View.AdvancedSearch";
-            _typeNameTable[15] = "WhatToWatchEnvDev.View.Category";
-            _typeNameTable[16] = "WhatToWatchEnvDev.View.Home";
-            _typeNameTable[17] = "WhatToWatchEnvDev.View.ListMovies";
-            _typeNameTable[18] = "WhatToWatchEnvDev.View.MovieDetails";
-            _typeNameTable[19] = "WhatToWatchEnvDev.View.Search";
-            _typeNameTable[20] = "WhatToWatchEnvDev.View.SearchResult";
+            _typeNameTable[11] = "WhatToWatchEnvDev.ViewModel.HomeViewModel";
+            _typeNameTable[12] = "WhatToWatchEnvDev.ViewModel.LoginViewModel";
+            _typeNameTable[13] = "WhatToWatchEnvDev.ViewModel.RegisterViewModel";
+            _typeNameTable[14] = "WhatToWatchEnvDev.ViewModel.ListFavoritesViewModel";
+            _typeNameTable[15] = "WhatToWatchEnvDev.MainPage";
+            _typeNameTable[16] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[17] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[18] = "WhatToWatchEnvDev.View.AdvancedSearch";
+            _typeNameTable[19] = "WhatToWatchEnvDev.View.Category";
+            _typeNameTable[20] = "WhatToWatchEnvDev.View.Home";
+            _typeNameTable[21] = "WhatToWatchEnvDev.View.ListFavorites";
+            _typeNameTable[22] = "WhatToWatchEnvDev.View.ListMovies";
+            _typeNameTable[23] = "WhatToWatchEnvDev.View.Login";
+            _typeNameTable[24] = "WhatToWatchEnvDev.View.MovieDetails";
+            _typeNameTable[25] = "WhatToWatchEnvDev.View.Register";
+            _typeNameTable[26] = "WhatToWatchEnvDev.View.Search";
+            _typeNameTable[27] = "WhatToWatchEnvDev.View.SearchResult";
 
-            _typeTable = new global::System.Type[21];
+            _typeTable = new global::System.Type[28];
             _typeTable[0] = typeof(global::WhatToWatchEnvDev.ViewModel.ViewModelLocator);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::WhatToWatchEnvDev.ViewModel.MainPageViewModel);
@@ -167,16 +174,23 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
             _typeTable[8] = typeof(global::WhatToWatchEnvDev.ViewModel.CategoryViewModel);
             _typeTable[9] = typeof(global::WhatToWatchEnvDev.ViewModel.ListMoviesViewModel);
             _typeTable[10] = typeof(global::WhatToWatchEnvDev.ViewModel.MovieDetailsViewModel);
-            _typeTable[11] = typeof(global::WhatToWatchEnvDev.MainPage);
-            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[14] = typeof(global::WhatToWatchEnvDev.View.AdvancedSearch);
-            _typeTable[15] = typeof(global::WhatToWatchEnvDev.View.Category);
-            _typeTable[16] = typeof(global::WhatToWatchEnvDev.View.Home);
-            _typeTable[17] = typeof(global::WhatToWatchEnvDev.View.ListMovies);
-            _typeTable[18] = typeof(global::WhatToWatchEnvDev.View.MovieDetails);
-            _typeTable[19] = typeof(global::WhatToWatchEnvDev.View.Search);
-            _typeTable[20] = typeof(global::WhatToWatchEnvDev.View.SearchResult);
+            _typeTable[11] = typeof(global::WhatToWatchEnvDev.ViewModel.HomeViewModel);
+            _typeTable[12] = typeof(global::WhatToWatchEnvDev.ViewModel.LoginViewModel);
+            _typeTable[13] = typeof(global::WhatToWatchEnvDev.ViewModel.RegisterViewModel);
+            _typeTable[14] = typeof(global::WhatToWatchEnvDev.ViewModel.ListFavoritesViewModel);
+            _typeTable[15] = typeof(global::WhatToWatchEnvDev.MainPage);
+            _typeTable[16] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[18] = typeof(global::WhatToWatchEnvDev.View.AdvancedSearch);
+            _typeTable[19] = typeof(global::WhatToWatchEnvDev.View.Category);
+            _typeTable[20] = typeof(global::WhatToWatchEnvDev.View.Home);
+            _typeTable[21] = typeof(global::WhatToWatchEnvDev.View.ListFavorites);
+            _typeTable[22] = typeof(global::WhatToWatchEnvDev.View.ListMovies);
+            _typeTable[23] = typeof(global::WhatToWatchEnvDev.View.Login);
+            _typeTable[24] = typeof(global::WhatToWatchEnvDev.View.MovieDetails);
+            _typeTable[25] = typeof(global::WhatToWatchEnvDev.View.Register);
+            _typeTable[26] = typeof(global::WhatToWatchEnvDev.View.Search);
+            _typeTable[27] = typeof(global::WhatToWatchEnvDev.View.SearchResult);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -217,14 +231,17 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
         private object Activate_8_CategoryViewModel() { return new global::WhatToWatchEnvDev.ViewModel.CategoryViewModel(); }
         private object Activate_9_ListMoviesViewModel() { return new global::WhatToWatchEnvDev.ViewModel.ListMoviesViewModel(); }
         private object Activate_10_MovieDetailsViewModel() { return new global::WhatToWatchEnvDev.ViewModel.MovieDetailsViewModel(); }
-        private object Activate_11_MainPage() { return new global::WhatToWatchEnvDev.MainPage(); }
-        private object Activate_14_AdvancedSearch() { return new global::WhatToWatchEnvDev.View.AdvancedSearch(); }
-        private object Activate_15_Category() { return new global::WhatToWatchEnvDev.View.Category(); }
-        private object Activate_16_Home() { return new global::WhatToWatchEnvDev.View.Home(); }
-        private object Activate_17_ListMovies() { return new global::WhatToWatchEnvDev.View.ListMovies(); }
-        private object Activate_18_MovieDetails() { return new global::WhatToWatchEnvDev.View.MovieDetails(); }
-        private object Activate_19_Search() { return new global::WhatToWatchEnvDev.View.Search(); }
-        private object Activate_20_SearchResult() { return new global::WhatToWatchEnvDev.View.SearchResult(); }
+        private object Activate_15_MainPage() { return new global::WhatToWatchEnvDev.MainPage(); }
+        private object Activate_18_AdvancedSearch() { return new global::WhatToWatchEnvDev.View.AdvancedSearch(); }
+        private object Activate_19_Category() { return new global::WhatToWatchEnvDev.View.Category(); }
+        private object Activate_20_Home() { return new global::WhatToWatchEnvDev.View.Home(); }
+        private object Activate_21_ListFavorites() { return new global::WhatToWatchEnvDev.View.ListFavorites(); }
+        private object Activate_22_ListMovies() { return new global::WhatToWatchEnvDev.View.ListMovies(); }
+        private object Activate_23_Login() { return new global::WhatToWatchEnvDev.View.Login(); }
+        private object Activate_24_MovieDetails() { return new global::WhatToWatchEnvDev.View.MovieDetails(); }
+        private object Activate_25_Register() { return new global::WhatToWatchEnvDev.View.Register(); }
+        private object Activate_26_Search() { return new global::WhatToWatchEnvDev.View.Search(); }
+        private object Activate_27_SearchResult() { return new global::WhatToWatchEnvDev.View.SearchResult(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -246,6 +263,10 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
                 userType.AddMemberName("Category");
                 userType.AddMemberName("ListMovies");
                 userType.AddMemberName("MovieDetails");
+                userType.AddMemberName("Home");
+                userType.AddMemberName("Login");
+                userType.AddMemberName("Register");
+                userType.AddMemberName("ListFavorites");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -314,66 +335,115 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 11:   //  WhatToWatchEnvDev.MainPage
-                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_MainPage;
+            case 11:   //  WhatToWatchEnvDev.ViewModel.HomeViewModel
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Windows.UI.Xaml.Controls.Page
+            case 12:   //  WhatToWatchEnvDev.ViewModel.LoginViewModel
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  WhatToWatchEnvDev.ViewModel.RegisterViewModel
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  WhatToWatchEnvDev.ViewModel.ListFavoritesViewModel
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  WhatToWatchEnvDev.MainPage
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  Windows.UI.Xaml.Controls.UserControl
+            case 17:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  WhatToWatchEnvDev.View.AdvancedSearch
+            case 18:   //  WhatToWatchEnvDev.View.AdvancedSearch
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_AdvancedSearch;
+                userType.Activator = Activate_18_AdvancedSearch;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  WhatToWatchEnvDev.View.Category
+            case 19:   //  WhatToWatchEnvDev.View.Category
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_15_Category;
+                userType.Activator = Activate_19_Category;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 16:   //  WhatToWatchEnvDev.View.Home
+            case 20:   //  WhatToWatchEnvDev.View.Home
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_Home;
+                userType.Activator = Activate_20_Home;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  WhatToWatchEnvDev.View.ListMovies
+            case 21:   //  WhatToWatchEnvDev.View.ListFavorites
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_ListMovies;
+                userType.Activator = Activate_21_ListFavorites;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  WhatToWatchEnvDev.View.MovieDetails
+            case 22:   //  WhatToWatchEnvDev.View.ListMovies
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_MovieDetails;
+                userType.Activator = Activate_22_ListMovies;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  WhatToWatchEnvDev.View.Search
+            case 23:   //  WhatToWatchEnvDev.View.Login
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_Search;
+                userType.Activator = Activate_23_Login;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  WhatToWatchEnvDev.View.SearchResult
+            case 24:   //  WhatToWatchEnvDev.View.MovieDetails
                 userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_SearchResult;
+                userType.Activator = Activate_24_MovieDetails;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 25:   //  WhatToWatchEnvDev.View.Register
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_25_Register;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 26:   //  WhatToWatchEnvDev.View.Search
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_26_Search;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 27:   //  WhatToWatchEnvDev.View.SearchResult
+                userType = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_27_SearchResult;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -416,6 +486,26 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
         {
             var that = (global::WhatToWatchEnvDev.ViewModel.ViewModelLocator)instance;
             return that.MovieDetails;
+        }
+        private object get_7_ViewModelLocator_Home(object instance)
+        {
+            var that = (global::WhatToWatchEnvDev.ViewModel.ViewModelLocator)instance;
+            return that.Home;
+        }
+        private object get_8_ViewModelLocator_Login(object instance)
+        {
+            var that = (global::WhatToWatchEnvDev.ViewModel.ViewModelLocator)instance;
+            return that.Login;
+        }
+        private object get_9_ViewModelLocator_Register(object instance)
+        {
+            var that = (global::WhatToWatchEnvDev.ViewModel.ViewModelLocator)instance;
+            return that.Register;
+        }
+        private object get_10_ViewModelLocator_ListFavorites(object instance)
+        {
+            var that = (global::WhatToWatchEnvDev.ViewModel.ViewModelLocator)instance;
+            return that.ListFavorites;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -465,6 +555,30 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
                 userType = (global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WhatToWatchEnvDev.ViewModel.ViewModelLocator");
                 xamlMember = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlMember(this, "MovieDetails", "WhatToWatchEnvDev.ViewModel.MovieDetailsViewModel");
                 xamlMember.Getter = get_6_ViewModelLocator_MovieDetails;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WhatToWatchEnvDev.ViewModel.ViewModelLocator.Home":
+                userType = (global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WhatToWatchEnvDev.ViewModel.ViewModelLocator");
+                xamlMember = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlMember(this, "Home", "WhatToWatchEnvDev.ViewModel.HomeViewModel");
+                xamlMember.Getter = get_7_ViewModelLocator_Home;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WhatToWatchEnvDev.ViewModel.ViewModelLocator.Login":
+                userType = (global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WhatToWatchEnvDev.ViewModel.ViewModelLocator");
+                xamlMember = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlMember(this, "Login", "WhatToWatchEnvDev.ViewModel.LoginViewModel");
+                xamlMember.Getter = get_8_ViewModelLocator_Login;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WhatToWatchEnvDev.ViewModel.ViewModelLocator.Register":
+                userType = (global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WhatToWatchEnvDev.ViewModel.ViewModelLocator");
+                xamlMember = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlMember(this, "Register", "WhatToWatchEnvDev.ViewModel.RegisterViewModel");
+                xamlMember.Getter = get_9_ViewModelLocator_Register;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WhatToWatchEnvDev.ViewModel.ViewModelLocator.ListFavorites":
+                userType = (global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WhatToWatchEnvDev.ViewModel.ViewModelLocator");
+                xamlMember = new global::WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo.XamlMember(this, "ListFavorites", "WhatToWatchEnvDev.ViewModel.ListFavoritesViewModel");
+                xamlMember.Getter = get_10_ViewModelLocator_ListFavorites;
                 xamlMember.SetIsReadOnly();
                 break;
             }

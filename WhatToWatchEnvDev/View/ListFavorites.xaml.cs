@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using WhatToWatchEnvDev.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -20,14 +21,18 @@ namespace WhatToWatchEnvDev.View
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class Search : Page
+    public sealed partial class ListFavorites : Page
     {
-        public Search()
+        public ListFavorites()
         {
             this.InitializeComponent();
-            BackButton.Visibility = Visibility.Visible;
-             SearchListBoxItem.IsSelected = true;
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ((ListFavoritesViewModel)DataContext).OnNavigatedTo(e);
+        }
+
 
         private void Hambutton_Click(object sender, RoutedEventArgs e)
         {
@@ -64,12 +69,6 @@ namespace WhatToWatchEnvDev.View
                 Frame.Navigate(typeof(View.ListFavorites));
                 BackButton.Visibility = Visibility.Visible;
             }
-
-        }
-
-        private void searchButton_Click (object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="WhatToWatchEnvDev.View.MovieDetails"
+    x:Class="WhatToWatchEnvDev.View.ListFavorites"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WhatToWatchEnvDev.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MovieDetails}">
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ListFavorites}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -55,12 +55,23 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame">
-                    <RelativePanel Background="#eeeeee">
-                        <Image Source="{Binding ChosenMovie.poster_path}"  Name="MoviePoster" Grid.Row="1" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="170" Width="100" RelativePanel.AlignLeftWithPanel="True" />
-                        <TextBlock Name="MovieTitle" Text="{Binding ChosenMovie.title}" RelativePanel.Below="MoviePoster"/>
-                        <TextBlock Name="MoviePopularity" Text="{Binding ChosenMovie.popularity}" RelativePanel.Below="MovieTitle"/>
-                        <TextBlock Name="MovieVote" Text="{Binding ChosenMovie.vote_average}" RelativePanel.Below="MoviePopularity"/>
-                    </RelativePanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="300">
+                        <RelativePanel Background="LightGray">
+                            <TextBlock Text="Favorites List" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                        </RelativePanel>
+
+                        <Grid Grid.Row="1">
+                            <ListView x:Name="CategoryListView" ItemsSource="{Binding FavoritesMovies}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate >
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding title}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </StackPanel>
                 </Frame>
             </SplitView.Content>
 

@@ -3,7 +3,10 @@ MainPage.xbf
 View\AdvancedSearch.xbf
 View\Category.xbf
 View\Home.xbf
+View\ListFavorites.xbf
 View\ListMovies.xbf
+View\Login.xbf
 View\MovieDetails.xbf
+View\Register.xbf
 View\Search.xbf
 View\SearchResult.xbf

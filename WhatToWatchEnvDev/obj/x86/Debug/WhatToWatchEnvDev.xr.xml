@@ -7,15 +7,26 @@
     <RootPropertyPathName Name="Categories" />
     <RootPropertyPathName Name="SelectedCategory" />
     <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="ListMovies" />
-    <RootPropertyPathName Name="Movies" />
+    <RootPropertyPathName Name="Home" />
+    <RootPropertyPathName Name="RegisterCommand" />
+    <RootPropertyPathName Name="LoginCommand" />
+    <RootPropertyPathName Name="WelcomeMessage" />
+    <RootPropertyPathName Name="ListFavorites" />
+    <RootPropertyPathName Name="FavoritesMovies" />
     <RootPropertyPathName Name="SelectedMovie" />
     <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="ListMovies" />
+    <RootPropertyPathName Name="Movies" />
+    <RootPropertyPathName Name="Login" />
+    <RootPropertyPathName Name="Password" />
+    <RootPropertyPathName Name="Email" />
     <RootPropertyPathName Name="MovieDetails" />
     <RootPropertyPathName Name="ChosenMovie" />
     <RootPropertyPathName Name="vote_average" />
     <RootPropertyPathName Name="popularity" />
     <RootPropertyPathName Name="poster_path" />
+    <RootPropertyPathName Name="Register" />
+    <RootPropertyPathName Name="ConfirmPassword" />
     <RootPropertyPathName Name="Search" />
     <RootPropertyPathName Name="SearchCommand" />
     <RootPropertyPathName Name="MovieTitle" />
@@ -41,7 +52,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
-      <RootProperty Name="Resources" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -52,6 +62,10 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootMethod Name="GetAlignLeftWithPanel" />
       <RootMethod Name="SetAlignLeftWithPanel" />
       <RootMethod Name="GetRightOf" />
@@ -86,6 +100,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="FontFamily" />
@@ -102,6 +117,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Name" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
@@ -134,7 +150,15 @@
     </RootType>
     <RootType FullName="WhatToWatchEnvDev.View.Category" />
     <RootType FullName="WhatToWatchEnvDev.View.Home" />
+    <RootType FullName="WhatToWatchEnvDev.View.ListFavorites" />
     <RootType FullName="WhatToWatchEnvDev.View.ListMovies" />
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Password" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="WhatToWatchEnvDev.View.Login" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Name" />
       <RootProperty Name="Source" />
@@ -145,6 +169,7 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="WhatToWatchEnvDev.View.MovieDetails" />
+    <RootType FullName="WhatToWatchEnvDev.View.Register" />
     <RootType FullName="WhatToWatchEnvDev.View.Search" />
     <RootType FullName="WhatToWatchEnvDev.View.SearchResult" />
   </Roots.RootTypes>

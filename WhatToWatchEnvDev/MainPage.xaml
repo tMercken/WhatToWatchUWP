@@ -8,10 +8,8 @@
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainView}"
     mc:Ignorable="d">
 
-    
-
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />

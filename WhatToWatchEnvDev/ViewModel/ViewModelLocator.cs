@@ -22,6 +22,10 @@ namespace WhatToWatchEnvDev.ViewModel
             SimpleIoc.Default.Register<SearchViewModel>();
             SimpleIoc.Default.Register<SearchResultViewModel>();
             SimpleIoc.Default.Register<AdvancedSearchViewModel>();
+            SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<LoginViewModel>();
+            SimpleIoc.Default.Register<RegisterViewModel>();
+            SimpleIoc.Default.Register<ListFavoritesViewModel>();
 
             NavigationService navigationService = new NavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
@@ -32,6 +36,10 @@ namespace WhatToWatchEnvDev.ViewModel
             navigationService.Configure("Search", typeof(Search));
             navigationService.Configure("AdvancedSearch", typeof(AdvancedSearch));
             navigationService.Configure("SearchResult", typeof(SearchResult));
+            navigationService.Configure("Home", typeof(Home));
+            navigationService.Configure("Login", typeof(Login));
+            navigationService.Configure("Register", typeof(Register));
+            navigationService.Configure("ListFavorites", typeof(ListFavorites));
 
         }
 
@@ -88,6 +96,38 @@ namespace WhatToWatchEnvDev.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MovieDetailsViewModel>();
+            }
+        }
+
+        public HomeViewModel Home
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<HomeViewModel>();
+            }
+        }
+
+        public LoginViewModel Login
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+
+        public RegisterViewModel Register
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<RegisterViewModel>();
+            }
+        }
+
+        public ListFavoritesViewModel ListFavorites
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ListFavoritesViewModel>();
             }
         }
 

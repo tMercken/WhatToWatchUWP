@@ -41,9 +41,9 @@ namespace WhatToWatchEnvDev.View
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MainFrame.CanGoBack)
+            if (Frame.CanGoBack)
             {
-                MainFrame.GoBack();
+                Frame.GoBack();
             }
         }
 
@@ -51,17 +51,22 @@ namespace WhatToWatchEnvDev.View
         {
             if (HomeListBoxItem.IsSelected)
             {
-                MainFrame.Navigate(typeof(View.Home));
+                Frame.Navigate(typeof(View.Home));
                 BackButton.Visibility = Visibility.Collapsed;
             }
             else if (SearchListBoxItem.IsSelected)
             {
-                MainFrame.Navigate(typeof(View.Search));
+                Frame.Navigate(typeof(View.Search));
                 BackButton.Visibility = Visibility.Visible;
             }
             else if (CategoryListBoxItem.IsSelected)
             {
-                MainFrame.Navigate(typeof(View.Category));
+                Frame.Navigate(typeof(View.Category));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (FavoriteListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.ListFavorites));
                 BackButton.Visibility = Visibility.Visible;
             }
         }
