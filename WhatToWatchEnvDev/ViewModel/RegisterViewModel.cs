@@ -72,12 +72,19 @@ namespace WhatToWatchEnvDev.ViewModel
             }
         }
 
-        private void SignIn()
+        private async void SignIn()
         {
             if (CanLogin())
             {
-                dataAzure.createUser(Email, Password);
-                _navigationService.NavigateTo("Home");
+                Boolean registerSuccessful = await dataAzure.createUser(Email, Password);
+                if (registerSuccessful)
+                {
+                    _navigationService.NavigateTo("Home");
+                }
+                else
+                {
+
+                }
             }
         }
 

@@ -24,10 +24,10 @@ namespace WhatToWatchEnvDev.ViewModel
         private INavigationService _navigationService;
         private ICommand _loginCommand;
         private ICommand _RegisterCommand;
+        private ICommand _logoutCommand;
         private ImdbAccess dataImdb;
         private App currentApp = Application.Current as App;
-
-        //public NavigationService nav;
+        
         public HomeViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
@@ -73,6 +73,24 @@ namespace WhatToWatchEnvDev.ViewModel
             }
         }
 
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                if (this._logoutCommand == null)
+                {
+                    this._logoutCommand = new RelayCommand(() => Logout());
+                }
+                return this._logoutCommand;
+            }
+        }
+
+        public void Logout()
+        {
+            currentApp.GlobalInstance.GlobalUser = null;
+            _navigationService.NavigateTo("Home");
+        }
+
         public void LoginNavigate()
         {
             _navigationService.NavigateTo("Login");
@@ -94,27 +112,7 @@ namespace WhatToWatchEnvDev.ViewModel
         {
             _navigationService.NavigateTo("Register");
         }
-
-        //navigation Hamburger Menu
-        public void HomeListBoxItemIsSelected()
-        {
-            _navigationService.NavigateTo("Home");
-        }
-
-        public void SearchListBoxItemIsSelected ()
-        {
-            _navigationService.NavigateTo("Search");
-        }
-
-        public void CategoryListBoxItemIsSelected()
-        {
-            _navigationService.NavigateTo("Category");
-        }
-
-        public void FavoriListListBoxItemIsSelected()
-        {
-            _navigationService.NavigateTo("FavoriList");
-        }
+        
     }
 }
 

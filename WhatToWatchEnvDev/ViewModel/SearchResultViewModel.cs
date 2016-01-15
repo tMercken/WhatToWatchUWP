@@ -67,6 +67,7 @@ namespace WhatToWatchEnvDev.ViewModel
 
         public void OnNavigatedTo(NavigationEventArgs e)
         {
+            Movies.Clear();
             try
             {
                 Movie searchedMovie = (Movie)e.Parameter;

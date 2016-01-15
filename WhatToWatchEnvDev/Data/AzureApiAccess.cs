@@ -42,56 +42,96 @@ namespace WhatToWatchEnvDev.Data
 
         public async Task<Boolean> FindUser(String newEmail, String newPassword)
         {
-            List<User> users = await GetAllUsers();
-
-            if (users.Any())
+            
+            try
             {
-                foreach (User item in users)
+                List<User> users = await GetAllUsers();
+                if (users.Any())
                 {
-                    if (item.email.Equals(newEmail) && item.password.Equals(newPassword))
+                    foreach (User item in users)
                     {
-                        //currentApp.GlobalInstance.userId = item.userid;
-                        Windows.Storage.ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
-                        //localSetting.Values["userid"] = item.userid;
-                        return true;
+                        if (item.email.Equals(newEmail) && item.password.Equals(newPassword))
+                        {
+                            //currentApp.GlobalInstance.userId = item.userid;
+                            Windows.Storage.ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
+                            //localSetting.Values["userid"] = item.userid;
+                            return true;
+                        }
                     }
                 }
+                return false;
             }
-            return false;
+            catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public async Task<bool> GetUser(String newEmail, String newPassword)
         {
-            List<User> users = await GetAllUsers();
-            if (users.Any())
+            try
             {
-                foreach (User item in users)
+                List<User> users = await GetAllUsers();
+                if (users.Any())
                 {
-                    if (item.email.Equals(newEmail) && item.password.Equals(newPassword))
+                    foreach (User item in users)
                     {
-                        currentApp.GlobalInstance.GlobalUser = item;
-                        return true;
+                        if (item.email.Equals(newEmail) && item.password.Equals(newPassword))
+                        {
+                            currentApp.GlobalInstance.GlobalUser = item;
+                            currentApp.GlobalInstance.GlobalUser.ListFavoris = await GetAllFavoritesFromGlobalUser();
+                            return true;
+                        }
                     }
                 }
+                return false;
             }
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
-        public async Task<bool> RemoveFavorite(int idFav)
+        public async Task<bool> RemoveFavorite(Movie movieFav)
         {
-
-            HttpResponseMessage response = await client.DeleteAsync("api/favoris/" + idFav);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                return true;
+                int? idFav = -1;
+                List<Favori> favoris = await GetAllFavoris();
+                //find wich favori to delete in the api
+                foreach (Favori item in favoris)
+                {
+                    if (item.idMovie == movieFav.id && item.emailUser == currentApp.GlobalInstance.GlobalUser.email)
+                    {
+                        idFav = item.id;
+                    }
+                }
+
+                HttpResponseMessage response = await client.DeleteAsync("api/filmfavoris/" + idFav);
+                if (response.IsSuccessStatusCode)
+                {
+                    //find wich favori to delete in the global user's list
+                    foreach (Favori item in currentApp.GlobalInstance.GlobalUser.ListFavoris)
+                    {
+                        if (item.idMovie == movieFav.id)
+                        {
+                            currentApp.GlobalInstance.GlobalUser.ListFavoris.Remove(item);
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }
-            return false;
+            catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public async Task<List<Favori>> GetAllFavoris()
         {
 
-            HttpResponseMessage response = await client.GetAsync("api/users");
+            HttpResponseMessage response = await client.GetAsync("api/filmfavoris");
             List<Favori> favoris = new List<Favori>();
             if (response.IsSuccessStatusCode)
             {
@@ -101,52 +141,90 @@ namespace WhatToWatchEnvDev.Data
             return favoris;
         }
 
-        public async Task<bool> AddToFavorite(Movie movieFav)
+        public async Task<List<Favori>> GetAllFavoritesFromGlobalUser()
         {
-            // witch one is added, fav or newFavorite
-            // don't forget to check if the new fav isn't alreagy in the DB
-            Favori fav = new Favori(movieFav.id, currentApp.GlobalInstance.GlobalUser.email);
-            string json = JsonConvert.SerializeObject(fav);
-            List<Favori> favoris = await GetAllFavoris();
-            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("api/favoris", content);
-
-            if ((response.IsSuccessStatusCode) || (response.StatusCode.ToString().Equals("Conflict")))
+            HttpResponseMessage response = await client.GetAsync("api/filmfavoris");
+            List<Favori> favoris = new List<Favori>();
+            List<Favori> userFavoris = new List<Favori>();
+            if (response.IsSuccessStatusCode)
             {
-                Favori newFavori = new Favori(movieFav.id, currentApp.GlobalInstance.GlobalUser.email);
-                string jsonFav = JsonConvert.SerializeObject(newFavori);
-                HttpContent contentFavoris = new StringContent(jsonFav, Encoding.UTF8, "application/json");
-                HttpResponseMessage responseFav = await client.PostAsync("api/userfavorites", contentFavoris);
+                string json = await response.Content.ReadAsStringAsync();
+                favoris = JsonConvert.DeserializeObject<List<Favori>>(json);
 
-                if (responseFav.IsSuccessStatusCode)
+                foreach (Favori item in favoris)
                 {
-                    return true;
+                    if (item.emailUser == currentApp.GlobalInstance.GlobalUser.email)
+                    {
+                        userFavoris.Add(item);
+                    }
                 }
             }
 
-            return false;
+            return userFavoris;
+        }
+
+        public async Task<bool> AddToFavorite(Movie movieFav)
+        {
+            try
+            {
+                    // check if the new fav isn't alreagy in the DB
+                foreach (Favori item in currentApp.GlobalInstance.GlobalUser.ListFavoris)
+                {
+                    if(movieFav.id == item.idMovie)
+                    {
+                        return false;
+                    }
+                }
+
+                //add fav            
+                Favori fav = new Favori(0, movieFav.id, currentApp.GlobalInstance.GlobalUser.email);
+                fav.id = 0;
+                currentApp.GlobalInstance.GlobalUser.ListFavoris.Add(fav);
+                string json = JsonConvert.SerializeObject(fav);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("api/filmfavoris", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public async Task<Boolean> createUser(String newEmail, String newPassword)
         {
-            User userToCreate = new User();
-            List<User> users = await GetAllUsers();
-            
-            foreach (User item in users)
+            try
             {
-                if (item.email.Equals(newEmail))
+                User userToCreate = new User();
+                List<User> users = await GetAllUsers();
+            
+                foreach (User item in users)
                 {
-                    return false;
+                    if (item.email.Equals(newEmail))
+                    {
+                        return false;
+                    }
                 }
-            }
 
-            userToCreate.email = newEmail;
-            userToCreate.password = newPassword;
-            userToCreate.ListFavoris = new List<Favori>();
-            string json = JsonConvert.SerializeObject(userToCreate);
-            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response2 = await client.PostAsync("api/users", content);
-            return true;
+                userToCreate.email = newEmail;
+                userToCreate.password = newPassword;
+                userToCreate.ListFavoris = new List<Favori>();
+                string json = JsonConvert.SerializeObject(userToCreate);
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response2 = await client.PostAsync("api/users", content);
+                currentApp.GlobalInstance.GlobalUser = userToCreate;
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
     }

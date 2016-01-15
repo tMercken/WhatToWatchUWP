@@ -11,5 +11,21 @@ namespace WhatToWatchEnvDev.Model
         public String email { get; set; }
         public String password { get; set; }
         public List<Favori> ListFavoris { get; set; }
+
+        public bool IsMovieInFavorite(Movie movie)
+        {
+            if (this.ListFavoris != null)
+            {
+                foreach(Favori item in ListFavoris)
+                {
+                    if (item.idMovie == movie.id)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
+    
 }

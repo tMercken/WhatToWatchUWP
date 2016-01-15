@@ -29,8 +29,9 @@ namespace WhatToWatchEnvDev.View
         public Category()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Categories";
             BackButton.Visibility = Visibility.Visible;
-            SearchListBoxItem.IsSelected = true;
+            CategoryListBoxItem.IsSelected = true;
         }
 
         private void Hambutton_Click(object sender, RoutedEventArgs e)

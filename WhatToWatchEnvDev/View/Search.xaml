@@ -17,7 +17,7 @@
         <RelativePanel Background="Purple">
             <Button Name="Hambutton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="28" Click="Hambutton_Click" RelativePanel.AlignLeftWithPanel="True"/>
             <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE0A6;" FontSize="28" Click="BackButton_Click" RelativePanel.RightOf="Hambutton" />
-            <TextBlock Name="WhatToWatchTitle" Text="WhatToWatch" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="26" RelativePanel.AlignHorizontalCenterWithPanel="True" FontWeight="Bold"  />
+            <TextBlock Name="WhatToWatchTitle" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="26" RelativePanel.AlignHorizontalCenterWithPanel="True" FontWeight="Bold"  />
         </RelativePanel>
 
         <SplitView Name="SplitViewMenu" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="160" CompactPaneLength="48" HorizontalAlignment="Left">
@@ -57,8 +57,8 @@
                 <Frame Name="MainFrame">
                     
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="350">
-                        <TextBox x:Name="searchTextBox" x:Uid="searchInput" PlaceholderText="Enter Movie Title" Margin="0,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding MovieTitle, Mode=TwoWay}" Width="294"/>
-                        <Button x:Name="searchButton" Content="Search" x:Uid="searchTitle" HorizontalAlignment="Center" Margin="0,15,0,0" Command="{Binding SearchCommand}"/>
+                        <TextBox x:Name="searchTextBox" PlaceholderText="Enter Movie Title" Margin="40,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding MovieTitle, Mode=TwoWay}" Width="294"/>
+                        <Button x:Name="searchButton" Content="Search" x:Uid="searchTitle" HorizontalAlignment="Center" Margin="40,15,0,0" Command="{Binding SearchCommand}"/>
                     </StackPanel>
                 </Frame>
             </SplitView.Content>

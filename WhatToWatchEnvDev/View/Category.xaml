@@ -17,7 +17,7 @@
         <RelativePanel Background="Purple">
             <Button Name="Hambutton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="28" Click="Hambutton_Click" RelativePanel.AlignLeftWithPanel="True"/>
             <Button Name="BackButton" FontFamily="Segoe MDL2 Assets" Content="&#xE0A6;" FontSize="28" Click="BackButton_Click" RelativePanel.RightOf="Hambutton" />
-            <TextBlock Name="WhatToWatchTitle" Text="WhatToWatch" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="26" RelativePanel.AlignHorizontalCenterWithPanel="True" FontWeight="Bold"  />
+            <TextBlock Name="WhatToWatchTitle" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="26" RelativePanel.AlignHorizontalCenterWithPanel="True" FontWeight="Bold"  />
         </RelativePanel>
 
         <SplitView Name="SplitViewMenu" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="160" CompactPaneLength="48" HorizontalAlignment="Left">
@@ -55,13 +55,8 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame" HorizontalAlignment="Center">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="300">
-                        <RelativePanel Background="LightGray">
-                            <TextBlock Text="Categories List" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                        </RelativePanel>
-
-                        <Grid Grid.Row="1">
-                            <ListView x:Name="CategoryListView" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="300">
+                        <ListView x:Name="CategoryListView" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate >
                                         <StackPanel HorizontalAlignment="Center">
@@ -70,8 +65,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                        </Grid>
-                    </StackPanel>
+                    </Grid>
                 </Frame>
             </SplitView.Content>
 

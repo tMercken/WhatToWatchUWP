@@ -25,6 +25,46 @@ namespace WhatToWatchEnvDev.View
         public Login()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Login";
+            HomeListBoxItem.IsSelected = false;
+        }
+
+
+        private void Hambutton_Click(object sender, RoutedEventArgs e)
+        {
+            SplitViewMenu.IsPaneOpen = !SplitViewMenu.IsPaneOpen;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
+
+        private void IconListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HomeListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Home));
+                BackButton.Visibility = Visibility.Collapsed;
+            }
+            else if (SearchListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Search));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (CategoryListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.Category));
+                BackButton.Visibility = Visibility.Visible;
+            }
+            else if (FavoriteListBoxItem.IsSelected)
+            {
+                Frame.Navigate(typeof(View.ListFavorites));
+                BackButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }

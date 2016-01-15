@@ -26,6 +26,7 @@ namespace WhatToWatchEnvDev.View
         public ListMovies()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Result";
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

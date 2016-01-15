@@ -26,6 +26,8 @@ namespace WhatToWatchEnvDev.View
         public SearchResult()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Search Result";
+            SearchListBoxItem.IsSelected = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -23,14 +23,7 @@ namespace WhatToWatchEnvDev.ViewModel
         private Movie _selectedMovie;
         private INavigationService _navigationService;
         ImdbAccess dataImdb;
-
-        public ListMoviesViewModel()
-        {
-            dataImdb = new ImdbAccess();
-            Movies = new ObservableCollection<Movie>();
-        }
-
-        [PreferredConstructor]
+        
         public ListMoviesViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
@@ -65,6 +58,7 @@ namespace WhatToWatchEnvDev.ViewModel
 
         public void OnNavigatedTo(NavigationEventArgs e)
         {
+            Movies.Clear();
             Category selectedCategory = (Category)e.Parameter;
             GetAllMovies(selectedCategory.Id);
         }

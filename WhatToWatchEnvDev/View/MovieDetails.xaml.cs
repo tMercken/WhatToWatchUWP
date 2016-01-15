@@ -23,9 +23,22 @@ namespace WhatToWatchEnvDev.View
     /// </summary>
     public sealed partial class MovieDetails : Page
     {
+        private App currentApp = Application.Current as App;
         public MovieDetails()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Movie Details";
+
+            if (currentApp.GlobalInstance.IsUserEmpty())
+            {
+                AddFavorites.Visibility = Visibility.Collapsed;
+                RemoveFavorites.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AddFavorites.Visibility = Visibility.Visible;
+                RemoveFavorites.Visibility = Visibility.Visible;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

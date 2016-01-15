@@ -8,6 +8,7 @@
     <RootPropertyPathName Name="SelectedCategory" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Home" />
+    <RootPropertyPathName Name="LogoutCommand" />
     <RootPropertyPathName Name="RegisterCommand" />
     <RootPropertyPathName Name="LoginCommand" />
     <RootPropertyPathName Name="WelcomeMessage" />
@@ -21,10 +22,12 @@
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Email" />
     <RootPropertyPathName Name="MovieDetails" />
+    <RootPropertyPathName Name="RemoveFromFavoritesCommand" />
+    <RootPropertyPathName Name="AddToFavoritesCommand" />
     <RootPropertyPathName Name="ChosenMovie" />
     <RootPropertyPathName Name="vote_average" />
     <RootPropertyPathName Name="popularity" />
-    <RootPropertyPathName Name="poster_path" />
+    <RootPropertyPathName Name="PosterPath" />
     <RootPropertyPathName Name="Register" />
     <RootPropertyPathName Name="ConfirmPassword" />
     <RootPropertyPathName Name="Search" />
@@ -52,6 +55,9 @@
       <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="MinWidth" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -66,6 +72,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
       <RootMethod Name="GetAlignLeftWithPanel" />
       <RootMethod Name="SetAlignLeftWithPanel" />
       <RootMethod Name="GetRightOf" />
@@ -74,6 +81,12 @@
       <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
       <RootMethod Name="GetBelow" />
       <RootMethod Name="SetBelow" />
+      <RootMethod Name="GetAlignTopWithPanel" />
+      <RootMethod Name="SetAlignTopWithPanel" />
+      <RootMethod Name="GetAlignVerticalCenterWithPanel" />
+      <RootMethod Name="SetAlignVerticalCenterWithPanel" />
+      <RootMethod Name="GetLeftOf" />
+      <RootMethod Name="SetLeftOf" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="Name" />
@@ -100,7 +113,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
-      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="FontFamily" />
@@ -162,9 +174,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Name" />
       <RootProperty Name="Source" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>

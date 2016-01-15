@@ -26,6 +26,8 @@ namespace WhatToWatchEnvDev.View
         public ListFavorites()
         {
             this.InitializeComponent();
+            WhatToWatchTitle.Text = "Favorites List";
+            FavoriteListBoxItem.IsSelected = true;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

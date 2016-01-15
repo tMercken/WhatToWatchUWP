@@ -52,12 +52,7 @@ namespace WhatToWatchEnvDev.ViewModel
 
         private void ChooseCategory()
         {        
-                // myFrame.Navigate(typeof(View.Home));
-                
-                //nav.Configure("ListMovies", typeof(View.ListMovies));
-                //nav.NavigateTo("ListMovies");
-           _navigationService.NavigateTo("ListMovies", SelectedCategory);
-            
+           _navigationService.NavigateTo("ListMovies", SelectedCategory);            
         }
 
         public async void GetAllCategories()
@@ -71,6 +66,7 @@ namespace WhatToWatchEnvDev.ViewModel
 
         public void OnNavigatedTo()
         {
+            Categories.Clear();
             GetAllCategories();
         }
 

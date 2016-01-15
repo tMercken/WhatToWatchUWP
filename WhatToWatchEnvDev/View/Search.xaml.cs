@@ -26,7 +26,8 @@ namespace WhatToWatchEnvDev.View
         {
             this.InitializeComponent();
             BackButton.Visibility = Visibility.Visible;
-             SearchListBoxItem.IsSelected = true;
+            SearchListBoxItem.IsSelected = true;
+            WhatToWatchTitle.Text = "Search";
         }
 
         private void Hambutton_Click(object sender, RoutedEventArgs e)

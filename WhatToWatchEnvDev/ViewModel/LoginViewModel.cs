@@ -24,7 +24,6 @@ namespace WhatToWatchEnvDev.ViewModel
         private String _password;
         private App currentApp = Application.Current as App; 
         private AzureApiAccess dataAzure;
-        User MyMyUser { get; set; }
 
         public LoginViewModel(INavigationService navigationService)
         {
@@ -71,12 +70,14 @@ namespace WhatToWatchEnvDev.ViewModel
                 Boolean loginReussit = await dataAzure.GetUser(Email, Password);
                 if (loginReussit)
                 {
-                    createToast("Login successful");
+                    // createToast("Login successful");
+                    Email = null;
+                    Password = null;
                     _navigationService.NavigateTo("Home");
                 }
                 else
                 {
-                    createToast("Error : email and password don't match");
+                   // createToast("Error : email and password don't match");
                 }
             }
         }

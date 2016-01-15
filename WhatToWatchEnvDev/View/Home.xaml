@@ -56,10 +56,11 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame">
-                    <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="350" Width="300">
+                    <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="350" Width="300" Margin="40,100,0,0">
                         <TextBlock x:Name="WelcomeTextBlock" VerticalAlignment="Top" Margin="0,30,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="{Binding WelcomeMessage}"/>
                         <Button x:Name="LoginButton" Content="Login" x:Uid="Login" Margin="0,30,0,0" RelativePanel.Below="WelcomeTextBlock" RelativePanel.AlignHorizontalCenterWithPanel="True" Command="{Binding LoginCommand}"/>
                         <Button x:Name="RegisterButton" Content="Register" x:Uid="Register" Margin="0,30,0,0" RelativePanel.Below="LoginButton" RelativePanel.AlignHorizontalCenterWithPanel="True" Command="{Binding RegisterCommand}"/>
+                        <Button x:Name="LogoutButton" Content="Log out" Margin="0,30,0,0" RelativePanel.Below="RegisterButton" RelativePanel.AlignHorizontalCenterWithPanel="True" Command="{Binding LogoutCommand}"/>
                     </RelativePanel>
 
                 </Frame>

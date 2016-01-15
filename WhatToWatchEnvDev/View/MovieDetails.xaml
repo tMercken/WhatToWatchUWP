@@ -55,11 +55,20 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame">
-                    <RelativePanel Background="#eeeeee">
-                        <Image Source="{Binding ChosenMovie.poster_path}"  Name="MoviePoster" Grid.Row="1" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="170" Width="100" RelativePanel.AlignLeftWithPanel="True" />
-                        <TextBlock Name="MovieTitle" Text="{Binding ChosenMovie.title}" RelativePanel.Below="MoviePoster"/>
-                        <TextBlock Name="MoviePopularity" Text="{Binding ChosenMovie.popularity}" RelativePanel.Below="MovieTitle"/>
-                        <TextBlock Name="MovieVote" Text="{Binding ChosenMovie.vote_average}" RelativePanel.Below="MoviePopularity"/>
+                    <RelativePanel Background="#eeeeee" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                        <Image Source="{Binding PosterPath}" Name="MoviePoster" RelativePanel.AlignTopWithPanel="True" Height="270" Width="200" RelativePanel.AlignVerticalCenterWithPanel="True" />
+                        <TextBlock Name="MovieTitleLabel" Text="title : " Margin="50,30,0,0" RelativePanel.Below="MoviePoster"/>
+                        <TextBlock Name="MovieTitle" Text="{Binding ChosenMovie.title}" RelativePanel.LeftOf="MovieTitleLabel"/>
+
+                        <TextBlock Name="MoviePopularityLabel" Text="popularity : " Margin="50,30,0,0" RelativePanel.Below="MovieTitleLabel"/>
+                        <TextBlock Name="MoviePopularity" Text="{Binding ChosenMovie.popularity}" RelativePanel.RightOf="MoviePopularityLabel" Margin="10,30,0,0" RelativePanel.Below="MovieTitleLabel"/>
+
+                        <TextBlock Name="MovieVoteLabel" Text="number of vote : " Margin="50,30,0,0" RelativePanel.Below="MoviePopularityLabel"/>
+                        <TextBlock Name="MovieVote" Text="{Binding ChosenMovie.vote_average}" RelativePanel.RightOf="MovieVoteLabel" Margin="10,30,0,0" RelativePanel.Below="MoviePopularityLabel" Width="200"/>
+
+                        <Button Name="AddFavorites" Content="add to favorites" Command="{Binding AddToFavoritesCommand}" Margin="50,50,0,0"  RelativePanel.Below="MovieVoteLabel" />
+                        <Button Name="RemoveFavorites" Content="remove from favorites" Command="{Binding RemoveFromFavoritesCommand}" Margin="50,30,0,0" RelativePanel.Below="AddFavorites" />
+
                     </RelativePanel>
                 </Frame>
             </SplitView.Content>

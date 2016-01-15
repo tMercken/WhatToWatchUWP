@@ -55,17 +55,13 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame">
-
-                    <Grid Grid.Row="1">
-                        <RelativePanel Background="LightGray">
-                            <TextBlock Text="Movies List" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="WhiteSmoke" FontSize="24" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                        </RelativePanel>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Top" MinWidth="300">
 
                         <ListView x:Name="CategoryListView" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}">
                             <ListView.ItemTemplate>
                                 <DataTemplate >
-                                    <StackPanel HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding title}" />
+                                    <StackPanel HorizontalAlignment="Center" >
+                                        <TextBlock Text="{Binding title}" Width="500"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

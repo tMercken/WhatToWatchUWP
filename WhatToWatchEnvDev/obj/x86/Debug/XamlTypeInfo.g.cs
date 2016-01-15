@@ -229,8 +229,6 @@ namespace WhatToWatchEnvDev.WhatToWatchEnvDev_XamlTypeInfo
         private object Activate_2_MainPageViewModel() { return new global::WhatToWatchEnvDev.ViewModel.MainPageViewModel(); }
         private object Activate_4_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
         private object Activate_8_CategoryViewModel() { return new global::WhatToWatchEnvDev.ViewModel.CategoryViewModel(); }
-        private object Activate_9_ListMoviesViewModel() { return new global::WhatToWatchEnvDev.ViewModel.ListMoviesViewModel(); }
-        private object Activate_10_MovieDetailsViewModel() { return new global::WhatToWatchEnvDev.ViewModel.MovieDetailsViewModel(); }
         private object Activate_15_MainPage() { return new global::WhatToWatchEnvDev.MainPage(); }
         private object Activate_18_AdvancedSearch() { return new global::WhatToWatchEnvDev.View.AdvancedSearch(); }
         private object Activate_19_Category() { return new global::WhatToWatchEnvDev.View.Category(); }

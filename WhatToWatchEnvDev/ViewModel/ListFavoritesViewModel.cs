@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WhatToWatchEnvDev.Data;
 using WhatToWatchEnvDev.Model;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 
 namespace WhatToWatchEnvDev.ViewModel
@@ -19,15 +20,16 @@ namespace WhatToWatchEnvDev.ViewModel
         private Movie _selectedMovie;
         private INavigationService _navigationService;
         ImdbAccess dataImdb;
-        
+        private App currentApp = Application.Current as App;
+
         public ListFavoritesViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
             dataImdb = new ImdbAccess();
-            Movies = new ObservableCollection<Movie>();
+            FavoritesMovies = new ObservableCollection<Movie>();
         }
 
-        public ObservableCollection<Movie> Movies
+        public ObservableCollection<Movie> FavoritesMovies
         {
             get { return _movies; }
             set
@@ -43,19 +45,22 @@ namespace WhatToWatchEnvDev.ViewModel
         }
 
 
-        public async void GetAllMovies(int idCategory)
+        public async void GetAllMoviesFromFavorites()
         {
-            List<Movie> listMovies = await dataImdb.GetMovieFromCategory(idCategory);
-            foreach (var item in listMovies)
+            if (!currentApp.GlobalInstance.IsUserEmpty())
             {
-                Movies.Add(item);
+                List<Movie> listMovies = await dataImdb.GetMovieFromGlobalUserFavorites();
+                foreach (Movie item in listMovies)
+                {
+                    FavoritesMovies.Add(item);
+                }
             }
         }
 
         public void OnNavigatedTo(NavigationEventArgs e)
         {
-            Category selectedCategory = (Category)e.Parameter;
-            GetAllMovies(selectedCategory.Id);
+            FavoritesMovies.Clear();
+            GetAllMoviesFromFavorites();
         }
 
         public Movie SelectedMovie

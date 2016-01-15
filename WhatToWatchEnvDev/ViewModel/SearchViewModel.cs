@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using System.ComponentModel;
 using System.Windows.Input;
+using Windows.UI.Xaml.Navigation;
 
 namespace WhatToWatchEnvDev.ViewModel
 { 
@@ -50,6 +51,11 @@ namespace WhatToWatchEnvDev.ViewModel
         public void AdvancedSearchNavigate()
         {
             _navigationService.NavigateTo("AdvancedSearch");
+        }
+
+        public void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this._movieTitle = null;
         }
 
         public String MovieTitle

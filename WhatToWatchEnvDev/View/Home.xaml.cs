@@ -22,11 +22,26 @@ namespace WhatToWatchEnvDev.View
     /// </summary>
     public sealed partial class Home : Page
     {
+        private App currentApp = Application.Current as App;
+
         public Home()
         {
             this.InitializeComponent();
             WhatToWatchTitle.Text = "WhatToWatch";
             BackButton.Visibility = Visibility.Collapsed;
+            if (currentApp.GlobalInstance.IsUserEmpty())
+            {
+                LoginButton.Visibility = Visibility.Visible;
+                RegisterButton.Visibility = Visibility.Visible;
+                LogoutButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                LoginButton.Visibility = Visibility.Collapsed;
+                RegisterButton.Visibility = Visibility.Collapsed;
+                LogoutButton.Visibility = Visibility.Visible;
+            }
+
             HomeListBoxItem.IsSelected = true;
         }
 
