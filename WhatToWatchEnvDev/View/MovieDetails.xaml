@@ -55,10 +55,10 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="MainFrame">
-                    <RelativePanel Background="#eeeeee" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Top" >
                         <Image Source="{Binding PosterPath}" Name="MoviePoster" RelativePanel.AlignTopWithPanel="True" Height="270" Width="200" RelativePanel.AlignVerticalCenterWithPanel="True" />
                         <TextBlock Name="MovieTitleLabel" Text="title : " Margin="50,30,0,0" RelativePanel.Below="MoviePoster"/>
-                        <TextBlock Name="MovieTitle" Text="{Binding ChosenMovie.title}" RelativePanel.LeftOf="MovieTitleLabel"/>
+                        <TextBlock Name="MovieTitle" Text="{Binding ChosenMovie.title}" Margin="10,30,0,0" RelativePanel.RightOf="MovieTitleLabel" RelativePanel.Below="MoviePoster"/>
 
                         <TextBlock Name="MoviePopularityLabel" Text="popularity : " Margin="50,30,0,0" RelativePanel.Below="MovieTitleLabel"/>
                         <TextBlock Name="MoviePopularity" Text="{Binding ChosenMovie.popularity}" RelativePanel.RightOf="MoviePopularityLabel" Margin="10,30,0,0" RelativePanel.Below="MovieTitleLabel"/>

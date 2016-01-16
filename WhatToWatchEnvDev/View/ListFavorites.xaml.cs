@@ -23,11 +23,22 @@ namespace WhatToWatchEnvDev.View
     /// </summary>
     public sealed partial class ListFavorites : Page
     {
+        private App currentApp = Application.Current as App;
+
         public ListFavorites()
         {
             this.InitializeComponent();
             WhatToWatchTitle.Text = "Favorites List";
             FavoriteListBoxItem.IsSelected = true;
+            if (currentApp.GlobalInstance.IsUserEmpty())
+            {
+                ErrorMessage.Text = "You need to be logged in to add a movie to your favorites";
+                ErrorMessage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ErrorMessage.Visibility = Visibility.Collapsed;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

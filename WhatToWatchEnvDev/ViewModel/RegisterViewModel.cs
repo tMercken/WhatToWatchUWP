@@ -83,7 +83,7 @@ namespace WhatToWatchEnvDev.ViewModel
                 }
                 else
                 {
-
+                    //make a toast
                 }
             }
         }
